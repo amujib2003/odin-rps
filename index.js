@@ -12,11 +12,11 @@ function getComputerChoice() {
     let random = Math.random();
 
     if (random <= (1/3)) {
-        console.log("rock")
+        return ("rock")
     } else if (random > (1/3) & random <= (2/3)) {
-        console.log("paper")
+        return ("paper")
     } else if (random > (2/3)) {
-        console.log("scissors")
+        return ("scissors")
     }
 }
 
@@ -24,13 +24,13 @@ function getHumanChoice() {
     let option = prompt("rock, paper, or scissors?");
 
     if (option.toLowerCase() === "rock") {
-        console.log("rock")
+        return ("rock")
     } else if (option.toLowerCase() === "paper") {
-        console.log("paper")
+        return ("paper")
     } else if (option.toLowerCase() === "scissors") {
-        console.log("scissors")
+        return ("scissors")
     } else {
-        console.log("invalid option")
+        return ("invalid option")
     }
 }
 
@@ -40,25 +40,35 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
 
+    if (humanChoice === computerChoice) {
+        return ('Tie.')
+    } else if (humanChoice === "rock" && computerChoice === "scissors") {
+        ++humanScore;
+        return ('You win! Rock beats Scissors.');
+    } else if (humanChoice === "paper" && computerChoice === "rock") {
+        ++humanScore;
+        return ('You win! Paper beats Rock.')
+    } else if (humanChoice === "scissors" && computerChoice === "paper") {
+        ++humanScore;
+        return('You win! Scissors beats Paper.')
+    } else if (humanChoice === "rock" && computerChoice === "paper") {
+        ++computerScore;
+        return ('You Lose! Paper beats Rock.')
+    } else if (humanChoice === "paper" && computerChoice === "scissors") {
+        ++computerScore;
+        return ('You Lose! Scissors beats Paper.')
+    } else if (humanChoice === "scissors" && computerChoice === "rock") {
+        ++computerScore;
+        return ('You Lose! Rock beats Scissors.')
+    } else if (humanChoice === "invalid option") {
+        return ('Try again.')
+    }
+
 }
-
-/*
-You win! Rock beats Scissors.
-You win! Paper beats Rock.
-You win! Scissors beats Paper.
-
-Tie.
-Tie.
-Tie.
-
-You Lose! Rock beats Scissors.
-You Lose! Paper beats Rock.
-You Lose! Scissors beats Paper.
-
-Invalid option.
-*/
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+console.log(playRound(humanSelection, computerSelection));
+console.log(humanScore);
+console.log(computerScore);
