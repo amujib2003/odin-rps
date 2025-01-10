@@ -1,13 +1,3 @@
-/*
-Create function getComputerChoice
-Return rock, paper, or scissors randomly
-Use Math.random to generate a number from 0-1
-Make rock = anything less than or equal to 1/3 repeating
-Make paper = anything greater than 1/3 repeating or less than or equal to 2/3 repeating
-Make scissors = anything greater than 2/3 repeating
-*/
-
-
 function getComputerChoice() {
     let random = Math.random();
 
@@ -61,14 +51,22 @@ function playRound(humanChoice, computerChoice) {
         ++computerScore;
         return ('You Lose! Rock beats Scissors.')
     } else if (humanChoice === "invalid option") {
-        return ('Try again.')
+        return ('Invalid choice. Try again.')
     }
 
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        console.log(`Round ${i + 1}`);
+        console.log(`Player Choice: ${humanSelection}`);
+        console.log(`Computer Choice: ${computerSelection}`);
+        console.log(playRound(humanSelection, computerSelection));
+    }
 
-console.log(playRound(humanSelection, computerSelection));
-console.log(humanScore);
-console.log(computerScore);
+    console.log(`Final Scores - Human: ${humanScore} Computer: ${computerScore}`);
+}
+
+playGame();
