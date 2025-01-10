@@ -1,1 +1,2 @@
 # odin-rps
+In this project I used my current knowledge of JavaScript to create the game rock paper scissors in the console. I became more comfortable using JS and also had the opportunity to get better at debugging.
