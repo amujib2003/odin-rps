@@ -10,19 +10,9 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let option = prompt("rock, paper, or scissors?");
-
-    if (option.toLowerCase() === "rock") {
-        return ("rock")
-    } else if (option.toLowerCase() === "paper") {
-        return ("paper")
-    } else if (option.toLowerCase() === "scissors") {
-        return ("scissors")
-    } else {
-        return ("invalid option")
-    }
-}
+const rock = document.querySelector("#rock")
+const paper = document.querySelector("#paper")
+const scissors = document.querySelector("#scissors")
 
 
 let humanScore = 0;
@@ -56,6 +46,37 @@ function playRound(humanChoice, computerChoice) {
 
 }
 
+const result = document.querySelector("#results")
+
+rock.addEventListener("click", () => {
+    humanChoice = "rock";
+    const computerChoice = getComputerChoice();
+
+    const round = document.createElement("p");
+    round.textContent = (playRound(humanChoice, computerChoice));
+    result.appendChild(round);
+    });
+    
+paper.addEventListener("click", () => {
+    humanChoice = "paper";
+    const computerChoice = getComputerChoice();
+
+    const round = document.createElement("p");
+    round.textContent = (playRound(humanChoice, computerChoice));
+    result.appendChild(round);
+    });
+
+scissors.addEventListener("click", () => {
+    humanChoice = "scissors";
+    const computerChoice = getComputerChoice();
+
+    const round = document.createElement("p");
+    round.textContent = (playRound(humanChoice, computerChoice));
+    result.appendChild(round);
+    });
+
+
+/*
 function playGame() {
     for (let i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
@@ -70,3 +91,4 @@ function playGame() {
 }
 
 playGame();
+*/
