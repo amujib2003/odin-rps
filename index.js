@@ -48,6 +48,10 @@ function playRound(humanChoice, computerChoice) {
 
 const result = document.querySelector("#results")
 
+const score = document.querySelector("#score");
+
+const points = document.createElement("p")
+
 rock.addEventListener("click", () => {
     humanChoice = "rock";
     const computerChoice = getComputerChoice();
@@ -55,6 +59,19 @@ rock.addEventListener("click", () => {
     const round = document.createElement("p");
     round.textContent = (playRound(humanChoice, computerChoice));
     result.appendChild(round);
+
+    points.textContent = (`Player: ${humanScore} CPU: ${computerScore}`);
+    score.appendChild(points);
+
+    if (humanScore == 5 && computerScore < 5) {
+        const win = document.createElement("p")
+        win.textContent = ("Player wins!")
+        score.appendChild(win);
+    } else if (computerScore == 5 && humanScore < 5) {
+        const win = document.createElement("p")
+        win.textContent = ("Computer wins!")
+        score.appendChild(win);
+    }
     });
     
 paper.addEventListener("click", () => {
@@ -64,6 +81,19 @@ paper.addEventListener("click", () => {
     const round = document.createElement("p");
     round.textContent = (playRound(humanChoice, computerChoice));
     result.appendChild(round);
+
+    points.textContent = (`Player: ${humanScore} CPU: ${computerScore}`);
+    score.appendChild(points);
+
+    if (humanScore == 5 && computerScore < 5) {
+        const win = document.createElement("p")
+        win.textContent = ("Player wins!")
+        score.appendChild(win);
+    } else if (computerScore == 5 && humanScore < 5) {
+        const win = document.createElement("p")
+        win.textContent = ("Computer wins!")
+        score.appendChild(win);
+    }
     });
 
 scissors.addEventListener("click", () => {
@@ -73,22 +103,17 @@ scissors.addEventListener("click", () => {
     const round = document.createElement("p");
     round.textContent = (playRound(humanChoice, computerChoice));
     result.appendChild(round);
+
+    points.textContent = (`Player: ${humanScore} CPU: ${computerScore}`);
+    score.appendChild(points);
+
+        if (humanScore == 5 && computerScore < 5) {
+            const win = document.createElement("p")
+            win.textContent = ("Player wins!")
+            score.appendChild(win);
+        } else if (computerScore == 5 && humanScore < 5) {
+            const win = document.createElement("p")
+            win.textContent = ("Computer wins!")
+            score.appendChild(win);
+        }
     });
-
-
-/*
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        console.log(`Round ${i + 1}`);
-        console.log(`Player Choice: ${humanSelection}`);
-        console.log(`Computer Choice: ${computerSelection}`);
-        console.log(playRound(humanSelection, computerSelection));
-    }
-
-    console.log(`Final Scores - Human: ${humanScore} Computer: ${computerScore}`);
-}
-
-playGame();
-*/

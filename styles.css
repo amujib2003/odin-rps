@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    text-align: center;
+}
+
+.rps {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
